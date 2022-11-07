@@ -271,7 +271,8 @@ body {
       .converter-card {
          .converter-card-tabs {
             .p-tabmenuitem {
-               width: 70px;
+               width: 80px;
+               font-weight:200px;
             }
          }
       }
@@ -333,10 +334,11 @@ body {
             }
          }
    
-         .converter-card {
-            width: 480px;
-           
-         }
+         .converter-card 
+         { 
+            width: 85vw;
+
+        }
    
          .cascadContainer {
             display: flex;

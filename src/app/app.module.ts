@@ -14,8 +14,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MenuModule} from 'primeng/menu';
-
-
+import {InputTextModule} from 'primeng/inputtext';
+import {StyleClassModule} from 'primeng/styleclass';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,9 @@ import {MenuModule} from 'primeng/menu';
     DropdownModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MenuModule
+    MenuModule,
+    InputTextModule,
+    StyleClassModule
 
 
   ],

@@ -149,6 +149,7 @@ body {
    .header {
       .container {
          padding: 10px 10px 10px 10px;
+
          .firstMenu {
             display: none;
          }
@@ -250,7 +251,8 @@ body {
 
    .pCard {
 
-      width: 50vw;
+      width: 70vw;
+      position: relative;
       // box-shadow: 0 10px 20px 0 rgba(1,0,1,0.2);
       display: flex;
       justify-content: center;
@@ -271,8 +273,7 @@ body {
       .converter-card {
          .converter-card-tabs {
             .p-tabmenuitem {
-               width: 80px;
-               font-weight:200px;
+               width: 70px;
             }
          }
       }
@@ -292,17 +293,19 @@ body {
       }
 
    }
-
-   .footer {
-      margin-left: 900px;
+   .result{
+      position: absolute;
+      left: 40px;
+      bottom: 40px;
    }
-
-   // .items2 {
-   //    align-items: center;
-   // }
+   .footer {
+      position: absolute;
+      right: 40px;
+      bottom: 40px;
+   }
 }
 
-@media (max-width: 992px){
+@media (max-width: 992px) {
    .cardContainer {
       position: relative;
       top: -100px;
@@ -314,66 +317,89 @@ body {
       align-items: center;
 
       .pCard {
-   
+
          // box-shadow: 0 10px 20px 0 rgba(1,0,1,0.2);
          width: 90vw;
          display: flex;
          justify-content: center;
          align-items: center;
          flex-direction: column;
-   
+
+
          .amount {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin: 20px 20px 20px 20px;
-   
+            margin: 20px 0px 20px 0px;
+            width: 100%;
+
+            p-inputnumber,
+            .p-inputnumber {
+               width: 100%;
+
+            }
+
+            
             .lable {
-               margin: 20px 20px 20px 20px;
+               margin: 20px 0px 20px 0px;
             }
          }
-   
-         .converter-card 
-         { 
-            width: 85vw;
 
-        }
-   
+         .converter-card {
+            width: 80vw;
+
+         }
+
          .cascadContainer {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin: 20px 20px 20px 20px;
-   
+            margin: 20px 0px 20px 0px;
+
             .cascade {
                display: flex;
                justify-content: center;
                align-items: center;
                flex-direction: column;
-               margin: 20px 20px 20px 20px;
+               margin: 20px 0px 20px 0px;
+               width: 100%;
+               .cascade1.p-dropdown{
+                  width: 100%;
+
+               }
             }
          }
-      
-         .result{
+
+         .result {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+         position: static;
+
 
          }
-   
+
       }
+
       .footer {
          margin-left: 0px;
+         margin: 20px 0px 20px 0px;
+         position: static;
+         width: 100%;
          display: flex;
          justify-content: center;
          align-items: center;
          flex-direction: column;
+
+         .button {
+            width: 100%;
+            .buttonClass.p-button {
+               width: 100%;
+            }
+         }
       }
-      
-   
-    
    }
 }

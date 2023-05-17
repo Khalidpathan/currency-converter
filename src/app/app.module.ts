@@ -16,6 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {MenuModule} from 'primeng/menu';
 import {InputTextModule} from 'primeng/inputtext';
 import {StyleClassModule} from 'primeng/styleclass';
+import { TabViewModule } from 'primeng/tabview';
+import { ChartModule } from 'primeng/chart';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import {StyleClassModule} from 'primeng/styleclass';
     HttpClientModule,
     MenuModule,
     InputTextModule,
-    StyleClassModule
+    StyleClassModule,
+    TabViewModule,
+    ChartModule
 
 
   ],

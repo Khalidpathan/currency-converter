@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container">
     <div class="logoContainer">
-      <img src="/assets/images/xe.png" alt="Logo">
+      <img src="/assets/images/vulogo.jpg" alt="Logo">
       <div class="firstMenu">
         <ul>
           <li><a href="">Personal</a></li>
@@ -12,11 +12,10 @@
     </div>
     <div class="middleMenuContainer menu">
       <ul>
-        <li><a href="">Send Money</a></li>
+
         <li><a href="">Converter</a></li>
         <li><a href="">Currency API</a></li>
         <li><a href="">Tools</a></li>
-        <li><a href="">Resources</a></li>
       </ul>
     </div>
     <div class="loginContainer login">
@@ -32,66 +31,178 @@
 
 
 <div class="coverContainer">
-  <h1>Xe Currency Converter</h1>
+  <h1>VU Currency Converter</h1>
   <h2>Check live foreign currency exchange rates</h2>
 </div>
 
 
 
 
+<!-- 
+<div class="cardContainer">
+  <p-card styleClass="pCard" class="pCard">
+    <div class="converter-card">
+      <p-tabMenu [model]="items2" ></p-tabMenu>
+    </div>
+
+    <ng-container *ngIf="i === 'Convert'">
+      <div class="p-field p-col-12 p-md-3 amount">
+        <label class="lable" for="locale-us" style="color:black;font-weight:bold;">Amount</label>
+        <p-inputNumber [(ngModel)]="value2" inpudId="locale-us" mode="decimal" locale="en-US" [minFractionDigits]="2" class="ammount_input" styleClass="ammount_input">
+        </p-inputNumber>
+      </div>
+      <div class="cascadContainer">
+        <label class="lable" for="locale-us" style="color:black;font-weight:bold;">From</label>
+        <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true" filterBy="name"
+          [showClear]="true" placeholder="Select a Country" class="cascade" styleClass="cascade1">
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="selectedCountry">
+              <div>{{selectedCountry.name + selectedCountry.code}}</div>
+            </div>
+          </ng-template>
+          <ng-template let-country pTemplate="item">
+            <div class="country-item">
+              <div>{{country.code +" - "+country.name}}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <label class="lable" for="locale-us" style="color:black;font-weight:bold;">To</label>
+        <p-dropdown [options]="countries" [(ngModel)]="selectedCountry2" optionLabel="name" [filter]="true"
+          filterBy="name" [showClear]="true" placeholder="Select a Country" class="cascade" styleClass="cascade1">
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="selectedCountry2">
+              <div>{{selectedCountry2.name + selectedCountry2.code}}</div>
+            </div>
+          </ng-template>
+          <ng-template let-country pTemplate="item">
+            <div class="country-item">
+              <div>{{country.code +" - "+country.name}}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+      <div class="footer">
+        <p-button label="Convert" (onClick)="callApi()" styleClass="buttonClass" class="button"></p-button>
+      </div>
+      <div class="result">
+        <h1 style="font-family:sans-serif">Result : {{totalAngularPackages}}</h1>
+      </div>
+    </ng-container>
+
+    
+  </p-card>
+
+  
+</div> -->
+
+<div class="card">
+
+</div>
 
 <div class="cardContainer">
   <p-card styleClass="pCard" class="pCard">
     <div class="converter-card">
-      <p-tabMenu [model]="items2"></p-tabMenu>
     </div>
-    <div class="p-field p-col-12 p-md-3 amount">
-      <label class="lable" for="locale-us" style="color:black;font-weight:bold;">Amount</label>
-      <p-inputNumber [(ngModel)]="value2" inpudId="locale-us" mode="decimal" locale="en-US" [minFractionDigits]="2" class="ammount_input" styleClass="ammount_input">
-      </p-inputNumber>
-    </div>
-    <div class="cascadContainer">
-      <label class="lable" for="locale-us" style="color:black;font-weight:bold;">From</label>
-      <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true" filterBy="name"
-        [showClear]="true" placeholder="Select a Country" class="cascade" styleClass="cascade1">
-        <ng-template pTemplate="selectedItem">
-          <div class="country-item country-item-value" *ngIf="selectedCountry">
-          
-            <div>{{selectedCountry.name + selectedCountry.code}}</div>
+    <p-tabView>
+      <!-- --------------------------Tab 1 ----------------------- -->
+      <p-tabPanel header="Converter">
+        <ng-container>
+          <div class="p-field p-col-12 p-md-3 amount">
+            <label class="lable" for="locale-us" style="color:black;font-weight:bold;">Amount</label>
+            <p-inputNumber [(ngModel)]="value2" inpudId="locale-us" mode="decimal" locale="en-US"
+              [minFractionDigits]="2" class="ammount_input" styleClass="ammount_input">
+            </p-inputNumber>
           </div>
-        </ng-template>
-        <ng-template let-country pTemplate="item">
-          <div class="country-item">
-            <div>{{country.code +" - "+country.name}}</div>
+          <div class="cascadContainer">
+            <label class="lable" for="locale-us" style="color:black;font-weight:bold;">From</label>
+            <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true"
+              filterBy="name" [showClear]="true" placeholder="Select a Country" class="cascade" styleClass="cascade1">
+              <ng-template pTemplate="selectedItem">
+                <div class="country-item country-item-value" *ngIf="selectedCountry">
+                  <div>{{selectedCountry.name + selectedCountry.code}}</div>
+                </div>
+              </ng-template>
+              <ng-template let-country pTemplate="item">
+                <div class="country-item">
+                  <div>{{country.code +" - "+country.name}}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+            <label class="lable" for="locale-us" style="color:black;font-weight:bold;">To</label>
+            <p-dropdown [options]="countries" [(ngModel)]="selectedCountry2" optionLabel="name" [filter]="true"
+              filterBy="name" [showClear]="true" placeholder="Select a Country" class="cascade" styleClass="cascade1">
+              <ng-template pTemplate="selectedItem">
+                <div class="country-item country-item-value" *ngIf="selectedCountry2">
+                  <div>{{selectedCountry2.name + selectedCountry2.code}}</div>
+                </div>
+              </ng-template>
+              <ng-template let-country pTemplate="item">
+                <div class="country-item">
+                  <div>{{country.code +" - "+country.name}}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
           </div>
-        </ng-template>
-      </p-dropdown>
-      <label class="lable" for="locale-us" style="color:black;font-weight:bold;">To</label>
-      <p-dropdown [options]="countries" [(ngModel)]="selectedCountry2" optionLabel="name" [filter]="true"
-        filterBy="name" [showClear]="true" placeholder="Select a Country" class="cascade" styleClass="cascade1">
-        <ng-template pTemplate="selectedItem">
-          <div class="country-item country-item-value" *ngIf="selectedCountry2">
-            <div>{{selectedCountry2.name + selectedCountry2.code}}</div>
+          <div class="footer">
+            <p-button label="Convert" (onClick)="callApi()" styleClass="buttonClass" class="button"></p-button>
           </div>
-        </ng-template>
-        <ng-template let-country pTemplate="item">
-          <div class="country-item">
-            <div>{{country.code +" - "+country.name}}</div>
+          <div class="result">
+            <h1 style="font-family:sans-serif">Result : {{totalAngularPackages}}</h1>
           </div>
-        </ng-template>
-      </p-dropdown>
-</div>
+        </ng-container>
+      </p-tabPanel>
+      <!--------------------------Tab 2 ----------------------->
+      <p-tabPanel header="Charts">
+        <div class="cascadContainer">
+          <label class="lable" for="locale-us" style="color:black;font-weight:bold;">From</label>
+          <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Select a Country" class="cascade" styleClass="cascade1">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="selectedCountry">
+                <div>{{selectedCountry.name + selectedCountry.code}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-country pTemplate="item">
+              <div class="country-item">
+                <div>{{country.code +" - "+country.name}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+          <label class="lable" for="locale-us" style="color:black;font-weight:bold;">To</label>
+          <p-dropdown [options]="countries" [(ngModel)]="selectedCountry2" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Select a Country" class="cascade" styleClass="cascade1">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="selectedCountry2">
+                <div>{{selectedCountry2.name + selectedCountry2.code}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-country pTemplate="item">
+              <div class="country-item">
+                <div>{{country.code +" - "+country.name}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+
+      </p-tabPanel>
+      <!-- --------------------------Tab 3 ----------------------- -->
+      <p-tabPanel header="Finance News">
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+          atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+          sunt in culpa
+          qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et
+          expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+        </p>
+      </p-tabPanel>
+    </p-tabView>
 
 
 
 
-
-    <div class="footer">
-      <p-button label="Convert" (onClick)="callApi()" styleClass="buttonClass" class="button"></p-button>
-    </div>
-    <div class="result">
-      <h1 style="font-family:sans-serif">Result : {{totalAngularPackages}}</h1>
-    </div>
-    
   </p-card>
+
+
 </div>

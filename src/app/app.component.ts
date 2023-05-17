@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import {MenuModule} from 'primeng/menu';
 
 
+
 import { ConverterService } from './converter.service';
 
 
@@ -26,41 +27,30 @@ interface City {
 })
 export class AppComponent {
     static selectedCountry: any;
-    
+ 
     [x: string]: any;
-
-    title = 'srzktask';
-
+    title = 'VU Currency Converter';
     kp: MenuItem[] = [];
-
-
 
     items2: MenuItem[] = [];
     value2: number = 1.00;
-    //   selectedCity1: any;
-
-    //   selectedCity2: any;
-// ==================================
-
 
     items: MenuItem[] = [];
 
-
-    //   ======================================
-
-
     selectedCountry: any;
-
+    activeTab: string;
     selectedCountry2: any;
+    // ----------Chart----------
+    data: any;
+    options: any;
+    // ------------------------
 
     countries: any[];
 
     totalAngularPackages: any;
 
-    constructor(private converter: ConverterService) {
-
-
-
+    constructor(private converter: ConverterService ) {
+        this.activeTab = 'Convert';
         this.countries = [
             { code: "AED", name: "UAE Dirham" },
             { code: "AFN", name: "Afghan Afghani" },
@@ -252,8 +242,84 @@ export class AppComponent {
         })
     }
 
+    handleTabChange(label: number) {
+        switch (label) {
+          case 0:
+            this.activeTab = 'Convert';
+            break;
+          case 1:
+            this.activeTab = 'Send';
+            break;
+          case 2:
+            this.activeTab = 'Charts';
+            break;
+          case 3:
+            this.activeTab = 'Alerts';
+            break;
+          default:
+            break;
+        }
+      }
 // ============================
     ngOnInit() {
+
+
+
+        // --------------------chart ------------------
+
+        const documentStyle = getComputedStyle(document.documentElement);
+        const textColor = documentStyle.getPropertyValue('black');
+        const textColorSecondary = documentStyle.getPropertyValue('blue');
+        const surfaceBorder = documentStyle.getPropertyValue('red');
+
+        this.data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                    label: 'First Dataset',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    borderColor: documentStyle.getPropertyValue('--blue-500'),
+                    tension: 0.4
+                }
+            ]
+        };
+
+        this.options = {
+            maintainAspectRatio: false,
+            aspectRatio: 0.6,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: textColor
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: textColorSecondary
+                    },
+                    grid: {
+                        color: surfaceBorder,
+                        drawBorder: false
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: textColorSecondary
+                    },
+                    grid: {
+                        color: surfaceBorder,
+                        drawBorder: false
+                    }
+                }
+            }
+        };
+
+
+
+        // ------------------------------------
 
 
         this.items = [
@@ -321,16 +387,12 @@ export class AppComponent {
             { label: 'Charts', icon: 'pi pi-chart-line' },
             { label: 'Alerts', icon: 'pi pi-bell' }
         ];
-        // const headers = {
-        //     'X-RapidAPI-Key': '42b0f52196mshef169a3a69256ebp104b31jsn4f7bba9b8d0d',
-        //     'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
-        // }
-        // this.http.get<any>('https://currency-exchange.p.rapidapi.com/exchange?from=USD&to=INR&q=1.0', { headers }).subscribe({
-        // next: data => {
-        //     this.totalAngularPackages = data.total;
-        // }
-        // })
- 
+        
+          
+          
+          
+          
+   
 
     }
 
@@ -377,3 +439,8 @@ export class AppComponent {
 
 
 }
+function handleTabChange(any: any) {
+    throw new Error('Function not implemented.');
+    
+}
+
